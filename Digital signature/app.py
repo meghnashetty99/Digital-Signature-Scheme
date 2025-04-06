@@ -1,4 +1,3 @@
-# app.py
 from flask import Flask, render_template, request, redirect, url_for, session, flash
 import json, os
 from datetime import datetime
@@ -12,13 +11,13 @@ app.secret_key = 'supersecretkey'
 USERS_FILE = 'users.json'
 HISTORY_FILE = 'history.json'
 
-# Ensure JSON files exist
+
 for file in [USERS_FILE, HISTORY_FILE]:
     if not os.path.exists(file):
         with open(file, 'w') as f:
             json.dump({}, f)
 
-# Login required decorator
+
 def login_required(f):
     @wraps(f)
     def decorated_function(*args, **kwargs):
