@@ -53,12 +53,12 @@
     </form>
 
     {% if signed_message %}
-      <h3>🧾 Generated Signature</h3>
+      <h3>Generated Signature</h3>
       <textarea id="signatureOutput" readonly>{{ signed_message }}</textarea>
       <button class="copy-btn" onclick="copySignature()">📋 Copy</button>
 
       <br><br>
-      <a href="{{ url_for('verify') }}" class="nav-link">✅ Now verify it →</a>
+      <a href="{{ url_for('verify') }}" class="nav-link">Now verify it →</a>
     {% endif %}
   </div>
 
