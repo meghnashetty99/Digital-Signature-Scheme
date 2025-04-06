@@ -145,7 +145,6 @@ p {
     margin-top: 10px;
 }
 
-/* Keyframes */
 @keyframes fadeIn {
     from {
         opacity: 0;
