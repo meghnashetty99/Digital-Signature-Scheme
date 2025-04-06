@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Verify a Signature</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='dashboard.css') }}">
+  <style>
+    textarea {
+        width: 100%;
+        min-height: 150px;
+        background-color: #1e1e1e;
+        color: #eee;
+        border: 1px solid #444;
+        border-radius: 10px;
+        padding: 12px;
+        font-family: monospace;
+        margin-bottom: 10px;
+    }
+
+    .copy-btn {
+        background: #8a2be2;
+        color: white;
+        padding: 6px 12px;
+        border: none;
+        border-radius: 6px;
+        margin-top: 8px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+    }
+
+    .copy-btn:hover {
+        background: #7a1fe0;
+    }
+
+    .nav-link {
+        display: inline-block;
+        margin-top: 15px;
+        color: #ad4fff;
+        text-decoration: none;
+    }
+
+    .nav-link:hover {
+        text-decoration: underline;
+    }
+
+    .result {
+      margin-top: 2rem;
+      text-align: center;
+      font-size: 1.4rem;
+      padding: 15px;
+      border-radius: 10px;
+      font-weight: bold;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .valid {
+      background-color: #1f3b1f;
+      color: #00ff7f;
+      border: 1px solid #00c267;
+    }
+
+    .invalid {
+      background-color: #552d2d;
+      color: #ff4d4d;
+      border: 1px solid #c20000;
+    }
+      
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <a href="{{ url_for('dashboard') }}" class="nav-link">← Back to Dashboard</a>
+
+    <h1> Verify a Signature</h1>
+
+    <form method="POST">
+      <label>Message:</label>
+      <textarea name="message" placeholder="Enter original message"></textarea>
+
+      <label>Signature (Hex):</label>
+      <textarea name="signature" placeholder="Paste the hex signature here"></textarea>
+
+      <button class="glow-btn" type="submit">Verify</button>
+    </form>
+
+    {% if result %}
+      <div class="result {% if 'VALID' in result %}valid{% else %}invalid{% endif %}">
+        {{ result }}
+      </div>
+    {% endif %}
+  </div>
+</body>
+</html>

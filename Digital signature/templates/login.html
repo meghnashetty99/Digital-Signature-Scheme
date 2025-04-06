@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login | Digital Signature Portal</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='auth.css') }}">
+    <style>
+      body {
+          margin: 0;
+          padding: 0;
+          background-image: url("{{ url_for('static', filename='loginimg.jpg') }}");
+          background-size: cover;
+          background-position: center;
+          background-repeat: no-repeat;
+          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+          color: white;
+      }
+
+      .login-container {
+          background-color: rgba(0, 0, 0, 0.8);
+          border-radius: 20px;
+          padding: 40px;
+          max-width: 900px;
+          margin: 100px auto;
+          display: flex;
+          justify-content: space-between;
+          box-shadow: 0 0 20px cyan;
+      }
+
+  </style>
+</head>
+<body>
+    <div class="bg-overlay"></div>
+    <div class="container">
+        <div class="welcome">
+            <h1>Digital Signing Made Simple</h1>
+            <p>Securely sign, verify, and manage your messages using cryptographic technology.</p>
+        </div>
+        <div class="form-box">
+            <h2>USER LOGIN</h2>
+            <form method="POST">
+                <input type="text" name="username" placeholder="Username" required>
+                <input type="password" name="password" placeholder="Password" required>
+                <div class="options">
+                    <label><input type="checkbox"> Remember</label>
+                    <a href="#">Forgot password?</a>
+                </div>
+                <button type="submit">LOGIN</button>
+            </form>
+            <p>New user? <a href="{{ url_for('signup') }}">Sign up</a></p>
+        </div>
+    </div>
+</body>
+</html>

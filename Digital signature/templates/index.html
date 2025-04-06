@@ -1,0 +1,37 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Digital Signature </title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>Digital Signature App</h1>
+
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <div class="flash">{{ messages[0] }}</div>
+      {% endif %}
+    {% endwith %}
+
+    <form action="/sign" method="POST">
+        <textarea name="message" placeholder="Enter message...">{{ message or "" }}</textarea><br>
+        <button type="submit">Sign Message</button>
+    </form>
+
+    {% if signature %}
+        <h3> Signature:</h3>
+        <textarea readonly>{{ signature }}</textarea>
+    {% endif %}
+
+    <br><br>
+    <a href="/verify">Go to Verify Page</a> | 
+    <a href="/keys">Generate New Keys</a>
+    <br>
+    <br>
+    <a href="{{ url_for('history') }}"> View Signature History</a>
+    <br>
+    <a href="/logout"> Logout</a>
+
+</body>
+</html>

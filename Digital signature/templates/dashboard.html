@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cyberpunk Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='dashboard.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="brand">Digital Signature</div>
+        <div class="nav-actions">
+            <button class="glow-btn">👤 {{ username }}</button>
+            <a href="{{ url_for('logout') }}" class="glow-btn logout">Logout</a>
+        </div>
+    </nav>
+
+    <main class="dashboard">
+        <section class="stats">
+            <div class="card stat-card">Signatures: <span>{{ total_signatures }}</span></div>
+            <div class="card stat-card">Verifications: <span>{{ verified_messages }}</span></div>
+            <div class="card stat-card">Users: <span>{{ total_users }}</span></div>
+            <div class="card stat-card">Your Signatures: <span>{{ total_signed }}</span></div>
+        </section>
+
+        <section class="charts">
+            <canvas id="lineChart"></canvas>
+        </section>
+
+        <section class="actions">
+            <a href="{{ url_for('sign') }}" class="glow-btn">Generate Signature</a>
+            <a href="{{ url_for('verify') }}" class="glow-btn">Verify Message</a>
+        </section>
+    </main>
+
+    <script src="{{ url_for('static', filename='dashboard.js') }}"></script>
+</body>
+</html>

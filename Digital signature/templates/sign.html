@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sign a Message</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='dashboard.css') }}">
+  <style>
+    .copy-btn {
+        background: #8a2be2;
+        color: white;
+        padding: 6px 12px;
+        border: none;
+        border-radius: 6px;
+        margin-top: 8px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+    }
+    .copy-btn:hover {
+        background: #7a1fe0;
+    }
+    textarea {
+        width: 100%;
+        min-height: 200px;
+        background-color: #1e1e1e;
+        color: #eee;
+        border: 1px solid #444;
+        border-radius: 10px;
+        padding: 12px;
+        font-family: monospace;
+    }
+    .nav-link {
+        display: inline-block;
+        margin-top: 15px;
+        color: #ad4fff;
+        text-decoration: none;
+    }
+    .nav-link:hover {
+        text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <a href="{{ url_for('dashboard') }}" class="nav-link">← Back to Dashboard</a>
+
+    <h1>Sign a Message</h1>
+
+    <form method="POST">
+      <textarea name="message" placeholder="Enter your message"></textarea>
+      <br>
+      <button class="glow-btn" type="submit">Generate Signature</button>
+    </form>
+
+    {% if signed_message %}
+      <h3>🧾 Generated Signature</h3>
+      <textarea id="signatureOutput" readonly>{{ signed_message }}</textarea>
+      <button class="copy-btn" onclick="copySignature()">📋 Copy</button>
+
+      <br><br>
+      <a href="{{ url_for('verify') }}" class="nav-link">✅ Now verify it →</a>
+    {% endif %}
+  </div>
+
+  <script>
+    function copySignature() {
+      const signatureText = document.getElementById('signatureOutput');
+      navigator.clipboard.writeText(signatureText.value)
+        .then(() => alert('Signature copied to clipboard!'))
+        .catch(err => alert('Copy failed', err));
+    }
+  </script>
+</body>
+</html>
+

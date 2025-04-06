@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Orbitron', sans-serif;
+    background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
+    color: #0ff;
+    height: 100vh;
+    overflow-x: hidden;
+    padding: 20px;
+}
+
+/* Navbar */
+.navbar {
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    border: 1px solid #0ff;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 15px;
+    box-shadow: 0 0 15px #0ff;
+    margin-bottom: 30px;
+}
+
+.brand {
+    font-size: 1.8rem;
+    color: #fff;
+    text-shadow: 0 0 10px #0ff;
+}
+
+.nav-actions .glow-btn {
+    margin-left: 15px;
+}
+
+/* Dashboard Layout */
+.dashboard {
+    display: grid;
+    grid-template-areas:
+        "stats stats"
+        "charts charts"
+        "actions actions";
+    gap: 30px;
+}
+
+/* Stats */
+.stats {
+    display: flex;
+    justify-content: space-between;
+    grid-area: stats;
+}
+
+.stat-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 30px;
+    flex: 1;
+    margin: 0 10px;
+    box-shadow: 0 0 20px #00ffff99;
+    text-align: center;
+    font-size: 1.3rem;
+    color: #fff;
+    border: 1px solid #0ff;
+}
+
+.stat-card span {
+    display: block;
+    font-size: 2rem;
+    margin-top: 10px;
+    color: #ff00ff;
+}
+
+/* Charts */
+.charts {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 0 20px #ff00ff88;
+    grid-area: charts;
+    border: 1px solid #ff00ff;
+}
+
+/* Buttons */
+.glow-btn {
+    padding: 12px 25px;
+    background: linear-gradient(45deg, #0ff, #f0f);
+    color: #000;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px #0ff;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.glow-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px #f0f, 0 0 30px #0ff;
+}
+
+/* Action Buttons */
+.actions {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    grid-area: actions;
+    margin-top: 20px;
+}
+
+/* Chart Canvas */
+canvas {
+    width: 100% !important;
+    height: 300px !important;
+}

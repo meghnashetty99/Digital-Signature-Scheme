@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Message History</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>📜 Signed Messages History</h2>
+        {% if history %}
+            <ul>
+                {% for entry in history %}
+                    <li><strong>{{ entry.message }}</strong><br><small>{{ entry.timestamp }}</small></li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No messages signed yet.</p>
+        {% endif %}
+        <a href="{{ url_for('dashboard') }}">← Back to Dashboard</a>
+    </div>
+</body>
+</html>
